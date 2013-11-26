@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     @results = JSON.parse(directions.body)
     return @results
   end
+
+  def fiveoneone_api
+    url = "http://services.my511.org/traffic/getpathlist.aspx?token=9e56dd14-d11d-49a8-9040-2d86898f6a7d?&o=1222&d=347"
+    @results = Nokogiri::XML(open(url))
+    return @results
+  end
 end
