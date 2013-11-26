@@ -1,0 +1,19 @@
+<h5>From <%= @origin.name %>, driving to:</h5>
+<div class="row">
+  <div class="large-12 columns">
+    <ul class="small-block-grid-2 medium-block-grid-3">
+      <% @cities.each_with_index do |city, idx| %>
+        <% unless city.name == @origin.name %>
+          <li class="citybox"><strong><%= city.name %></strong> will take
+            <ul>
+              <li><%= @traveltimes[idx][0] %> minutes in current conditions</li>
+              <li><%= @traveltimes[idx][1] %> minutes in typical conditions</li>
+            </ul>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<br><br>
+
