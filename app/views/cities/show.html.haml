@@ -1,0 +1,25 @@
+%h3
+  From #{@origin.name}, driving to:
+.row
+  .medium-12.columns
+    %ul.small-block-grid-2.medium-block-grid-3
+      - @cities.each_with_index do |city,idx|
+        - unless city.name == @origin.name
+          %li.citybox
+            %strong= city.name
+            will take
+            - if @traveltimes[idx][0].to_f > (@traveltimes[idx][1].to_f*(1.15))
+              %h3.badtime
+                %strong= @traveltimes[idx][0]
+            - elsif @traveltimes[idx][0].to_f < (@traveltimes[idx][1].to_f*(0.85))
+              %h3.goodtime
+                %strong= @traveltimes[idx][0]
+            - else
+              %h3
+                %strong= @traveltimes[idx][0]
+            %h4
+              %small
+                minutes in current conditions
+            %h5
+              %small
+                (#{@traveltimes[idx][1]} minutes in typical conditions)
