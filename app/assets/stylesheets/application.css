@@ -21,3 +21,10 @@
   border: 1px solid lightblue;
  }
 
+ .badtime {
+  color: #FE2E2E;
+ }
+
+ .goodtime {
+  color: #04B404;
+ }

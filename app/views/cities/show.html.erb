@@ -6,7 +6,14 @@
         <% unless city.name == @origin.name %>
           <li class="citybox">
             <strong><%= city.name %></strong> will take
-            <h3><strong><%= @traveltimes[idx][0] %></strong></h3>
+            <% if @traveltimes[idx][0].to_f > (@traveltimes[idx][1].to_f*(1.15))%>
+              <%= @traveltimes[idx][1] %>
+              <h3 class="badtime"><strong><%= @traveltimes[idx][0] %></strong></h3>
+            <% elsif @traveltimes[idx][0].to_f < (@traveltimes[idx][1].to_f*(0.85))%>
+              <h3 class="goodtime"><strong><%= @traveltimes[idx][0] %></strong></h3>
+            <% else %>
+              <h3><strong><%= @traveltimes[idx][0] %></strong></h3>
+            <% end %>
             <h4><small>minutes in current conditions</small></h4>
             <h5><small>(<%= @traveltimes[idx][1] %> minutes in typical conditions)</small></h5>
           </li>
