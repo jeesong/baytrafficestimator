@@ -11,3 +11,13 @@
  *= require_self
  *= require_tree .
  */
+ .citybox {
+  border: 1px solid lightblue;
+  border-radius: 5px;
+  text-align: center;
+ }
+
+ .norcal {
+  border: 1px solid lightblue;
+ }
+
